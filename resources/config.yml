@@ -25,6 +25,13 @@ combat-log:
   enabled: true
 
 
+# Anti-Same-IP PvP protection
+anti-same-ip:
+  # Prevent players with the same IP address from fighting.
+  # Set to false to disable this feature.
+  enabled: true
+
+
 # Commands that players cannot use during combat
 blocked-commands:
   # Enable or disable command blocking during combat.

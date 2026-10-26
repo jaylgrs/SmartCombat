@@ -8,8 +8,18 @@ combat-slain: "<#FF003C>☠ <victim> was slain by <killer>"
 
 # Command messages
 commands:
+  help:
+    header: "<#00FF8C>SmartCombat commands:"
+    reload: "<#A8A8A8>/smartcombat reload <#666666>- Reload configuration files"
+    alias: "<#A8A8A8>Alias: /sc reload"
+
   reload:
     success: "<#00FF8C>SmartCombat configurations reloaded successfully."
     no-permission: "<#FF003C>You don't have permission to use this command."
     usage: "<#A8A8A8>Usage: /smartcombat reload"
     unknown: "<#FF003C>Unknown subcommand. Use /smartcombat reload."
+
+
+# Anti-Same-IP messages
+anti-same-ip:
+  pvp-blocked: "<#FF4D6D>⚠ PvP Denied: You cannot attack players connected from the same IP address."

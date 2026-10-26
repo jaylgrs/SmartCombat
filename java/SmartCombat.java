@@ -1,6 +1,9 @@
 package CombatLog;
 
+import AntiSameIp.Listener;
+import command.CommandListener;
 import CombatLog.hud.Hud;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -26,6 +29,13 @@ public final class SmartCombat extends JavaPlugin {
                 this
         );
 
+        getServer().getPluginManager().registerEvents(
+                new Listener(this),
+                this
+        );
+
+        registerCommands();
+
         hud.start();
 
         getLogger().info("SmartCombat has been enabled.");
@@ -38,6 +48,22 @@ public final class SmartCombat extends JavaPlugin {
         }
 
         getLogger().info("SmartCombat has been disabled.");
+    }
+
+    private void registerCommands() {
+        PluginCommand command = getCommand("smartcombat");
+
+        if (command == null) {
+            getLogger().severe(
+                    "Command 'smartcombat' is missing from plugin.yml."
+            );
+            return;
+        }
+
+        CommandListener commandListener = new CommandListener(this);
+
+        command.setExecutor(commandListener);
+        command.setTabCompleter(commandListener);
     }
 
     private void loadLangConfig() {
