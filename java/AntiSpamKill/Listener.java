@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.Locale;
 
@@ -93,6 +94,11 @@ public final class Listener implements org.bukkit.event.Listener {
         }
 
         manager.startCooldown(killer, victim);
+    }
+
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent event) {
+        manager.resetProtection(event.getPlayer());
     }
 
     private void sendMessage(

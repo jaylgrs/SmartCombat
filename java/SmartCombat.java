@@ -42,6 +42,11 @@ public final class SmartCombat extends JavaPlugin {
                 this
         );
 
+        getServer().getPluginManager().registerEvents(
+                new CombatLog.Listener(this, combatManager),
+                this
+        );
+
         registerCommands();
 
         hud.start();

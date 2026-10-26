@@ -124,6 +124,7 @@ public final class CombatListener implements Listener {
         }
 
         if (killer != null && !killer.equals(victim)) {
+            combatManager.incrementKills(killer);
             broadcastSlain(victim, killer);
             combatManager.clearCombat(killer);
         }

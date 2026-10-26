@@ -46,6 +46,10 @@ public final class Manager {
         protectionStates.put(player.getUniqueId(), false);
     }
 
+    public void resetProtection(Player player) {
+        protectionStates.remove(player.getUniqueId());
+    }
+
     public void startCooldown(Player killer, Player victim) {
         long cooldown = getCooldownMillis();
 

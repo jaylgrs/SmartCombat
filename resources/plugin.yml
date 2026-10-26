@@ -15,7 +15,7 @@ commands:
 
   spamkill:
     description: Manage your anti-spam-kill protection.
-    usage: /spamkill protect <enable|disable|status>
+    usage: /spamkill protect [disable|status]
     permission: smartcombat.spamkill
 
 permissions:

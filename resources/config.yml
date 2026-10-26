@@ -37,6 +37,10 @@ spam-kill:
   # Enable or disable the entire spam-kill protection feature.
   enabled: true
 
+  # Enable protection by default for each player.
+  # Players may disable their own protection using the command.
+  protection-enabled: true
+
   # Cooldown in minutes after a player kills another player.
   # During this period, the killed player can choose to disable protection.
   kill-cooldown-minutes: 15
