@@ -1,0 +1,18 @@
+name: SmartCombat
+version: 0.0.1
+main: CombatLog.SmartCombat
+description: Smart Combatlog for Paper servers
+author: Astra Studio (JayLgrs)
+api-version: '1.21.11'
+
+commands:
+  smartcombat:
+    description: Main command for SmartCombat.
+    usage: /smartcombat reload
+    aliases:
+      - sc
+
+permissions:
+  smartcombat.reload:
+    description: Allows reloading SmartCombat configuration files.
+    default: op

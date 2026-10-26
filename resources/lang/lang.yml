@@ -1,0 +1,15 @@
+# ==========================================
+# SmartCombat Language Configuration
+# ==========================================
+
+# Combat announcements
+combat-slain: "<#FF003C>☠ <victim> was slain by <killer>"
+
+
+# Command messages
+commands:
+  reload:
+    success: "<#00FF8C>SmartCombat configurations reloaded successfully."
+    no-permission: "<#FF003C>You don't have permission to use this command."
+    usage: "<#A8A8A8>Usage: /smartcombat reload"
+    unknown: "<#FF003C>Unknown subcommand. Use /smartcombat reload."

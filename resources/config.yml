@@ -1,0 +1,53 @@
+# ==========================================
+# SmartCombat Configuration
+# ==========================================
+
+# Combat timer settings
+combat:
+  # Duration of combat tagging in seconds after a player damages another player.
+  duration-seconds: 21
+
+
+# Combat HUD settings
+hud:
+  # Enable or disable the combat timer shown in the action bar.
+  enabled: true
+
+  # Customize the combat timer appearance.
+  # Placeholder: {time} = remaining combat time in seconds.
+  # Supports MiniMessage formatting and hex colors.
+  format: "<#A8A8A8>Combat: <#FF003C>{time}"
+
+
+# Combat logging settings
+combat-log:
+  # If enabled, players who disconnect during combat will be killed.
+  enabled: true
+
+
+# Commands that players cannot use during combat
+blocked-commands:
+  # Enable or disable command blocking during combat.
+  enabled: true
+
+  # List of blocked commands.
+  # Use command names without the leading slash.
+  # For subcommands, separate the command and subcommand with a space.
+  # Example: "team home"
+  commands:
+    - tpa
+    - tpacancel
+    - tpaccept
+    - tpahere
+    - home
+    - homes
+    - warp
+    - warps
+    - rtp
+    - spawn
+    - afk
+    - team home
+
+  # Message sent to players when they try to use a blocked command.
+  # Supports MiniMessage formatting and hex colors.
+  message: "<#FF003C>You cannot do this in combat."
