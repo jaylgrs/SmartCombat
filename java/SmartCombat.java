@@ -1,6 +1,7 @@
 package CombatLog;
 
 import AntiSameIp.Listener;
+import AntiSpamKill.Manager;
 import command.CommandListener;
 import CombatLog.hud.Hud;
 import org.bukkit.command.PluginCommand;
@@ -13,6 +14,7 @@ import java.io.File;
 public final class SmartCombat extends JavaPlugin {
 
     private CombatManager combatManager;
+    private Manager spamKillManager;
     private Hud hud;
     private FileConfiguration langConfig;
 
@@ -22,6 +24,7 @@ public final class SmartCombat extends JavaPlugin {
         loadLangConfig();
 
         combatManager = new CombatManager(this);
+        spamKillManager = new Manager(this);
         hud = new Hud(this, combatManager);
 
         getServer().getPluginManager().registerEvents(
@@ -31,6 +34,11 @@ public final class SmartCombat extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(
                 new Listener(this),
+                this
+        );
+
+        getServer().getPluginManager().registerEvents(
+                new AntiSpamKill.Listener(this, spamKillManager),
                 this
         );
 
@@ -51,19 +59,29 @@ public final class SmartCombat extends JavaPlugin {
     }
 
     private void registerCommands() {
+        CommandListener commandListener = new CommandListener(this);
+
         PluginCommand command = getCommand("smartcombat");
 
         if (command == null) {
             getLogger().severe(
                     "Command 'smartcombat' is missing from plugin.yml."
             );
-            return;
+        } else {
+            command.setExecutor(commandListener);
+            command.setTabCompleter(commandListener);
         }
 
-        CommandListener commandListener = new CommandListener(this);
+        PluginCommand spamKillCommand = getCommand("spamkill");
 
-        command.setExecutor(commandListener);
-        command.setTabCompleter(commandListener);
+        if (spamKillCommand == null) {
+            getLogger().severe(
+                    "Command 'spamkill' is missing from plugin.yml."
+            );
+        } else {
+            spamKillCommand.setExecutor(commandListener);
+            spamKillCommand.setTabCompleter(commandListener);
+        }
     }
 
     private void loadLangConfig() {
@@ -82,6 +100,10 @@ public final class SmartCombat extends JavaPlugin {
 
     public CombatManager getCombatManager() {
         return combatManager;
+    }
+
+    public Manager getSpamKillManager() {
+        return spamKillManager;
     }
 
     public void reloadPluginConfigs() {

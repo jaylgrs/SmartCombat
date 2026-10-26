@@ -5,7 +5,7 @@
 # Combat timer settings
 combat:
   # Duration of combat tagging in seconds after a player damages another player.
-  duration-seconds: 21
+  duration-seconds: 20
 
 
 # Combat HUD settings
@@ -30,6 +30,16 @@ anti-same-ip:
   # Prevent players with the same IP address from fighting.
   # Set to false to disable this feature.
   enabled: true
+
+
+# Anti-Spam-Kill protection
+spam-kill:
+  # Enable or disable the entire spam-kill protection feature.
+  enabled: true
+
+  # Cooldown in minutes after a player kills another player.
+  # During this period, the killed player can choose to disable protection.
+  kill-cooldown-minutes: 15
 
 
 # Commands that players cannot use during combat

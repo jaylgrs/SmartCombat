@@ -23,3 +23,24 @@ commands:
 # Anti-Same-IP messages
 anti-same-ip:
   pvp-blocked: "<#FF4D6D>⚠ PvP Denied: You cannot attack players connected from the same IP address."
+
+
+# Anti-Spam-Kill messages
+spam-kill:
+  help: "<#A8A8A8>/spamkill protect [disable|status]"
+  usage: "<#A8A8A8>Usage: /spamkill protect [disable|status]"
+
+  player-only: "<#FF003C>This command can only be used by players."
+  no-permission: "<#FF003C>You don't have permission to use this command."
+
+  protection-disabled: "<#FFB347>Your spam-kill protection has been disabled. You cannot enable it again this session."
+  already-disabled: "<#FFB347>Your spam-kill protection is already disabled and cannot be enabled again this session."
+
+  protection-status-enabled: "<#00FF8C>Your spam-kill protection is enabled."
+  protection-status-disabled: "<#FFB347>Your spam-kill protection is disabled and cannot be enabled again this session."
+
+  # Sent to the attacker when protection blocks their attack.
+  attacker-blocked: "<#FF4D6D>You cannot attack this player while spam-kill protection is active. Remaining protection: {time}."
+
+  # Sent to the recently killed player when they try to retaliate.
+  victim-protected: "<#FFB347>You are protected from spam killing. Disable your protection with /spamkill protect disable to fight back. Remaining protection: {time}."

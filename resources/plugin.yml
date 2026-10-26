@@ -11,8 +11,18 @@ commands:
     usage: /smartcombat reload
     aliases:
       - sc
+    permission: smartcombat.reload
+
+  spamkill:
+    description: Manage your anti-spam-kill protection.
+    usage: /spamkill protect <enable|disable|status>
+    permission: smartcombat.spamkill
 
 permissions:
   smartcombat.reload:
     description: Allows reloading SmartCombat configuration files.
     default: op
+
+  smartcombat.spamkill:
+    description: Allows players to manage their own spam-kill protection.
+    default: true
